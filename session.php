@@ -24,7 +24,15 @@
 ?>
 
 <?php
-  if($_SESSION["loginname"] != "enei" || $_SESSION["pass"] != "pass"){
+  //とりあえずuser.jsonの中身は1行しかないこととする
+  $json = file_get_contents("user.json");
+  if ($json === false) {
+    die "file not found";
+  }
+  $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+  $data = json_decode($json, true);
+
+  if($_SESSION["loginname"] != $data['id'] || $_SESSION["pass"] != $data['pass']){
     ?>
       ログインに失敗しました。<br />
       <a href="login.html">ログインページ</a>
