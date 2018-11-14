@@ -1,5 +1,6 @@
 # php_Learning
 PHP勉強用のリポジトリです。
 
-VirtualBox 5.2.22 platform packages
-Vagrant 2.2.0 
+# 環境構築
+*VirtualBox 5.2.22 
+*Vagrant 2.2.0 
